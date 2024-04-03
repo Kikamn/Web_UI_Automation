@@ -38,11 +38,21 @@ Feature: Home
 
   @filter-product
   Scenario: User can filter product
+    Given user is on login page
     And user input username with "standard_user"
     And user input password with "secret_sauce"
     And user click login button
     When user clik filter
     Then User can chose filter product
+
+    @burger-button
+    Scenario: User can click button burger menu
+      Given user is on login page
+      And user input username with "standard_user"
+      And user input password with "secret_sauce"
+      And user click login button
+      When user click burger menu button
+      Then User see menu
 
 
 
