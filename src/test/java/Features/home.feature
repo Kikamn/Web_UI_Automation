@@ -53,7 +53,3 @@ Feature: Home
       And user click login button
       When user click burger menu button
       Then User see menu
-
-
-
-
