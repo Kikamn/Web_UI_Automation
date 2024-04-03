@@ -26,7 +26,7 @@ Feature: Home
     When User Click Add to cart button
     Then user add product in keranjang
 
-  @buttn-remove
+  @button-remove
   Scenario: User can remome product
     Given user is on login page
     And user input username with "standard_user"

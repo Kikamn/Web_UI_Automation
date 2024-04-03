@@ -52,7 +52,7 @@ public class HomeStep extends BaseTest {
     @When("user click burger menu button")
     public void userClickBurgerMenuButton() {
         homePage.clickBurgerMenu();
-    }
+    } 
     @Then("User see menu")
     public void userSeeMenu() {
         Assert.assertEquals(driver.findElement(By.xpath("//*[@id=\"inventory_sidebar_link\"]")).getText(),"All Items");
