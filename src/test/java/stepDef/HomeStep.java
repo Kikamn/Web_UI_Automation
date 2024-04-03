@@ -5,12 +5,16 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import pages.HomePage;
+import pages.LoginPage;
 
 public class HomeStep extends BaseTest {
-    public static HomePage homePage;
+    HomePage homePage;
+
+    public HomeStep(){
+        this.homePage = new HomePage();
+    }
     @Then("User is on homepage")
     public void userIsOnHomepage(){
-        homePage = new HomePage(driver);
         homePage.validateHomePage();
     }
 
@@ -54,11 +58,12 @@ public class HomeStep extends BaseTest {
         homePage.clickBurgerMenu();
     }
     @Then("User see menu")
-    public void userSeeMenu() {
-        Assert.assertEquals(driver.findElement(By.xpath("//*[@id=\"inventory_sidebar_link\"]")).getText(),"All Items");
-        Assert.assertEquals(driver.findElement(By.xpath("//*[@id=\"about_sidebar_link\"]")).getText(), "About");
-        Assert.assertEquals(driver.findElement(By.xpath("//*[@id=\"logout_sidebar_link\"]")).getText(), "Logout");
-        Assert.assertEquals(driver.findElement(By.xpath("//*[@id=\"reset_sidebar_link\"]")).getText(), "Reset App State");
+    public void userSeeMenu() throws InterruptedException {
+        Thread.sleep(1000);
+        Assert.assertEquals(driver.findElement(By.id("inventory_sidebar_link")).getText(),"All Items");
+        Assert.assertEquals(driver.findElement(By.id("about_sidebar_link")).getText(), "About");
+        Assert.assertEquals(driver.findElement(By.id("logout_sidebar_link")).getText(), "Logout");
+        Assert.assertEquals(driver.findElement(By.id("reset_sidebar_link")).getText(), "Reset App State");
     }
 
 }

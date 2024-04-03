@@ -1,17 +1,15 @@
 package pages;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static stepDef.BaseTest.driver;
 
 public class HomePage {
-    public static WebDriver driver;
     By producName = By.xpath("//*[@id=\"item_4_img_link\"]/div");
     By prodyctImage = By.id("item_4_img_link");
     By productPrice = By.xpath("//*[@id=\"inventory_container\"]/div/div[1]/div[2]/div[2]/div");
@@ -20,13 +18,10 @@ public class HomePage {
     By logOut = By.xpath("//*[@id=\"logout_sidebar_link\"]");
     By resetAppState = By.xpath("//*[@id=\"reset_sidebar_link\"]");
 
-    By buttonBurgermenu = By.cssSelector("bm-burger-button");
+    By buttonBurgermenu = By.id("react-burger-menu-btn");
     By buttonAddCart = By.id("add-to-cart-sauce-labs-backpack");
     By buttonRemoveCart = By.id("remove-sauce-labs-backpack");
-    
-    public HomePage (WebDriver driver){
-        this.driver = driver;
-    }
+
     public void validateHomePage(){
         WebElement productElement = driver.findElement(producName);
         assertTrue(productElement.isDisplayed());
