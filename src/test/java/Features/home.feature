@@ -27,7 +27,7 @@ Feature: Home
     Then user add product in keranjang
 
   @button-remove
-  Scenario: User can remome product
+  Scenario: User can remove product
     Given user is on login page
     And user input username with "standard_user"
     And user input password with "secret_sauce"
@@ -42,7 +42,7 @@ Feature: Home
     And user input username with "standard_user"
     And user input password with "secret_sauce"
     And user click login button
-    When user clik filter
+    When user click filter
     Then User can chose filter product
 
     @burger-button

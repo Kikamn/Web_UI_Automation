@@ -2,10 +2,9 @@ package stepDef;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
-import org.openqa.selenium.By;
+
 import pages.HomePage;
-import pages.LoginPage;
+
 
 public class HomeStep extends BaseTest {
     HomePage homePage;
@@ -35,6 +34,7 @@ public class HomeStep extends BaseTest {
 
     @Then("user add product in keranjang")
     public void userAddProductInKeranjang() {
+        homePage.shopingCart();
     }
 
     @When("User Click remove button")
@@ -43,15 +43,18 @@ public class HomeStep extends BaseTest {
     }
 
     @Then("User can remove product in keranjang")
-    public void userCanRemoveProductInKeranjang() {
+    public void userCanRemoveProductInKeranjang(){
+        homePage.removeCart();
     }
 
-    @When("user clik filter")
-    public void userClikFilter() {
+    @When("user click filter")
+    public void userClickFilter() {
+        homePage.clickDropDown();
     }
 
     @Then("User can chose filter product")
-    public void userCanChoseFilterProduct() {
+    public void userCanChoseFilterProduct() throws InterruptedException {
+        homePage.menuDropdown();
     }
     @When("user click burger menu button")
     public void userClickBurgerMenuButton() {
@@ -59,11 +62,7 @@ public class HomeStep extends BaseTest {
     } 
     @Then("User see menu")
     public void userSeeMenu() throws InterruptedException {
-        Thread.sleep(1000);
-        Assert.assertEquals(driver.findElement(By.id("inventory_sidebar_link")).getText(),"All Items");
-        Assert.assertEquals(driver.findElement(By.id("about_sidebar_link")).getText(), "About");
-        Assert.assertEquals(driver.findElement(By.id("logout_sidebar_link")).getText(), "Logout");
-        Assert.assertEquals(driver.findElement(By.id("reset_sidebar_link")).getText(), "Reset App State");
+        homePage.tampilanBurgerMenu();
     }
 
 }
